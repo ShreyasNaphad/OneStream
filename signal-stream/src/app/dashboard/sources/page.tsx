@@ -118,54 +118,7 @@ export default function SourcesPage() {
         </div>
       </div>
 
-      {/* Pro Feature Upsell (Bottom Bento Section) */}
-      <section className="mt-16 bg-surface-container-high rounded-xl overflow-hidden relative border border-outline-variant/10">
-        <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
-          <div className="w-full h-full bg-gradient-to-l from-primary to-transparent"></div>
-        </div>
-        <div className="px-8 py-10 md:px-12 flex flex-col md:flex-row items-center gap-8">
-          <div className="flex-1 space-y-4 text-center md:text-left z-10">
-            <div className="inline-flex px-3 py-1 bg-primary/10 text-primary text-[10px] uppercase tracking-[0.2em] font-bold rounded-full border border-primary/20">
-              Pro Feature
-            </div>
-            <h3 className="font-headline text-3xl font-bold text-on-surface">
-              AI-Powered Source Discovery
-            </h3>
-            <p className="text-outline text-lg max-w-xl">
-              Let our neural engine scan the global signal and suggest
-              top-performing accounts based on your current interests.
-            </p>
-            <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-2">
-              <button className="px-8 py-3 bg-primary text-on-primary font-bold rounded-xl active:scale-95 duration-200">
-                Try Smart Discovery
-              </button>
-              <button className="px-8 py-3 bg-surface-variant/40 text-on-surface font-semibold rounded-xl hover:bg-surface-variant/60 transition-colors">
-                Learn More
-              </button>
-            </div>
-          </div>
-          {/* Decorative Visualization for AI Feature */}
-          <div className="hidden lg:block w-72 h-48 bg-background/40 rounded-xl border border-outline-variant/10 p-4 shadow-2xl backdrop-blur-md z-10">
-            <div className="space-y-3">
-              <div className="h-2 w-1/2 bg-primary/20 rounded"></div>
-              <div className="flex gap-2">
-                <div className="h-8 w-8 rounded-full bg-surface-container-highest"></div>
-                <div className="space-y-1 flex-1">
-                  <div className="h-2 w-full bg-surface-container-highest rounded"></div>
-                  <div className="h-2 w-3/4 bg-surface-container-highest rounded"></div>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <div className="h-8 w-8 rounded-full bg-surface-container-highest"></div>
-                <div className="space-y-1 flex-1">
-                  <div className="h-2 w-full bg-surface-container-highest rounded"></div>
-                  <div className="h-2 w-3/4 bg-surface-container-highest rounded"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Add Source Modal */}
       <AddSourceModal
