@@ -28,7 +28,7 @@ interface DataPoint {
 }
 
 function useNetworkCanvas(
-  canvasRef: React.RefPtr<HTMLCanvasElement>,
+  canvasRef: React.RefObject<HTMLCanvasElement | null>,
   hoverIntensity: number
 ) {
   useEffect(() => {
