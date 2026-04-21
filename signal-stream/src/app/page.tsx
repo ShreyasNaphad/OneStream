@@ -6,8 +6,6 @@ import {
   LayoutDashboard,
   Rss,
   Layers,
-  Bookmark,
-  Settings,
   Zap,
   Activity,
   ArrowRight,
@@ -242,7 +240,7 @@ function PortalTile({
   return (
     <Link
       href={href}
-      className="group relative block rounded-2xl border border-[#2a2d40]/60 bg-[#14151f]/70 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-[#4a5aff]/50 hover:shadow-[0_0_40px_rgba(46,91,255,0.12)] hover:-translate-y-1"
+      className="group relative block rounded-2xl border border-[#303348]/60 bg-gradient-to-br from-[#14151f]/80 to-[#0a0b14]/90 backdrop-blur-3xl overflow-hidden transition-all duration-500 hover:border-[#4a5aff]/60 hover:shadow-[0_0_50px_rgba(46,91,255,0.18)] hover:-translate-y-2"
       onMouseEnter={() => onHover(true)}
       onMouseLeave={() => onHover(false)}
     >
@@ -273,10 +271,10 @@ function PortalTile({
               {icon}
             </div>
             <div>
-              <h3 className="font-headline text-sm font-black uppercase tracking-wider text-[#e5e2e1]">
+              <h3 className="text-sm font-black uppercase tracking-wider text-[#e5e2e1]" style={{ fontFamily: "var(--font-space)" }}>
                 {title}
               </h3>
-              <p className="text-[10px] text-slate-500 uppercase tracking-widest">
+              <p className="text-[10px] text-slate-400 uppercase tracking-widest" style={{ fontFamily: "var(--font-space)" }}>
                 {subtitle}
               </p>
             </div>
@@ -292,8 +290,8 @@ function PortalTile({
         {/* Button */}
         <div className="flex items-center gap-2 opacity-60 group-hover:opacity-100 transition-all duration-300">
           <span
-            className="text-xs font-headline font-bold uppercase tracking-widest"
-            style={{ color: accentColor }}
+            className="text-xs font-bold uppercase tracking-widest"
+            style={{ color: accentColor, fontFamily: "var(--font-space)" }}
           >
             {buttonText}
           </span>
@@ -409,48 +407,6 @@ function MiniSourceNetwork() {
   );
 }
 
-function MiniSavedArticles() {
-  const saved = [
-    "Understanding Transformer Architectures",
-    "The Future of Edge Computing",
-    "Quantum Computing: 2025 Roadmap",
-  ];
-  return (
-    <div className="space-y-2">
-      {saved.map((s, i) => (
-        <div key={i} className="flex items-center gap-2">
-          <Bookmark className="w-3 h-3 text-[#b8c3ff] shrink-0" />
-          <p className="text-[11px] text-slate-300 truncate">{s}</p>
-        </div>
-      ))}
-      <p className="text-[10px] text-slate-500 mt-2">+12 more saved</p>
-    </div>
-  );
-}
-
-function MiniSettingsConsole() {
-  const settings = [
-    { label: "Theme", value: "Dark Mode" },
-    { label: "Refresh Rate", value: "5 min" },
-    { label: "AI Summaries", value: "Enabled" },
-    { label: "Notifications", value: "On" },
-  ];
-  return (
-    <div className="space-y-2">
-      {settings.map((s) => (
-        <div
-          key={s.label}
-          className="flex items-center justify-between bg-[#1a1b2e]/60 rounded px-3 py-1.5 border border-[#2a2d40]/30"
-        >
-          <span className="text-[10px] text-slate-500 uppercase tracking-wider">
-            {s.label}
-          </span>
-          <span className="text-[10px] text-[#b8c3ff] font-bold">{s.value}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 /* ───────────────────────── Homepage ───────────────────────── */
 
@@ -472,7 +428,7 @@ export default function HomePage() {
   if (!mounted) return null;
 
   return (
-    <div className="relative min-h-screen bg-[#0a0b14] overflow-hidden text-[#e5e2e1]">
+    <div className="relative h-screen bg-[#0a0b14] overflow-hidden flex flex-col text-[#e5e2e1]">
       {/* Canvas background */}
       <canvas
         ref={canvasRef}
@@ -486,16 +442,16 @@ export default function HomePage() {
       </div>
 
       {/* ── Nav ── */}
-      <nav className="relative z-50 flex items-center justify-between px-6 md:px-10 h-16">
+      <nav className="relative z-50 flex items-center justify-between px-6 md:px-10 h-16 shrink-0">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#2e5bff] to-[#571bc1] flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg outline outline-1 outline-[#2e5bff]/30 bg-gradient-to-br from-[#2e5bff] to-[#571bc1] flex items-center justify-center shadow-[0_0_20px_rgba(46,91,255,0.4)]">
             <Activity className="w-4 h-4 text-white" />
           </div>
           <div>
-            <h1 className="text-base font-headline font-black tracking-tight bg-gradient-to-r from-[#b8c3ff] to-[#7c8dff] bg-clip-text text-transparent leading-none">
+            <h1 className="text-lg font-black tracking-tight bg-gradient-to-r from-[#e5e2e1] to-[#b8c3ff] bg-clip-text text-transparent leading-none" style={{ fontFamily: "var(--font-space)" }}>
               OneStream
             </h1>
-            <p className="text-[8px] tracking-[0.25em] uppercase text-slate-600 leading-none mt-0.5">
+            <p className="text-[9px] tracking-[0.3em] font-medium uppercase text-slate-500 leading-none mt-1" style={{ fontFamily: "var(--font-space)" }}>
               Intelligence
             </p>
           </div>
@@ -518,15 +474,15 @@ export default function HomePage() {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative z-10 text-center pt-12 md:pt-20 pb-6 px-6">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 max-w-3xl mx-auto leading-[1.1]" style={{ fontFamily: 'var(--font-space)' }}>
+      <section className="relative z-10 text-center pt-8 md:pt-16 pb-6 px-6 shrink-0">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-5 max-w-4xl mx-auto leading-[1.1]" style={{ fontFamily: 'var(--font-space)' }}>
           Your{" "}
-          <span className="bg-gradient-to-r from-[#b8c3ff] via-[#7c8dff] to-[#a78bfa] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#2e5bff] via-[#7c8dff] to-[#d0bcff] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(46,91,255,0.4)]">
             Intelligence
           </span>{" "}
           Centre
         </h2>
-        <p className="text-sm md:text-base text-slate-500 max-w-xl mx-auto leading-relaxed mb-2">
+        <p className="text-sm md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-2 font-medium" style={{ fontFamily: 'var(--font-space)' }}>
           Every signal. Every source. One unified view.
           <br className="hidden sm:block" />
           Select a module below to begin.
@@ -534,7 +490,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Portal Tiles Grid ── */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pb-24 pt-4">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pb-10 flex-1 flex flex-col justify-center w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {/* Tile 1 – Dashboard */}
           <PortalTile
@@ -576,52 +532,12 @@ export default function HomePage() {
             <MiniSourceNetwork />
           </PortalTile>
 
-          {/* Tile 4 – Saved */}
-          <PortalTile
-            title="Saved"
-            subtitle="Articles"
-            href="/dashboard/saved"
-            buttonText="Access Saved"
-            icon={<Bookmark className="w-5 h-5 text-[#38bdf8]" />}
-            accentColor="#38bdf8"
-            onHover={handleTileHover}
-          >
-            <MiniSavedArticles />
-          </PortalTile>
 
-          {/* Tile 5 – Settings */}
-          <PortalTile
-            title="System"
-            subtitle="Settings"
-            href="/dashboard/settings"
-            buttonText="Edit Settings"
-            icon={<Settings className="w-5 h-5 text-[#f472b6]" />}
-            accentColor="#f472b6"
-            onHover={handleTileHover}
-          >
-            <MiniSettingsConsole />
-          </PortalTile>
-
-          {/* Tile 6 – Quick access / CTA */}
-          <div className="relative rounded-2xl border border-dashed border-[#2a2d40]/60 bg-[#14151f]/30 backdrop-blur-xl overflow-hidden flex flex-col items-center justify-center min-h-[260px] text-center p-6">
-            <div className="w-14 h-14 rounded-full bg-[#2e5bff]/10 flex items-center justify-center mb-4 border border-[#2e5bff]/20">
-              <Zap className="w-6 h-6 text-[#2e5bff]" />
-            </div>
-            <p className="text-xs text-slate-500 mb-4 max-w-[180px]">
-              New modules and integrations coming soon.
-            </p>
-            <Link
-              href="/dashboard/feed"
-              className="px-5 py-2.5 bg-gradient-to-r from-[#2e5bff] to-[#571bc1] text-white text-xs font-headline font-bold rounded-lg hover:shadow-[0_0_25px_rgba(46,91,255,0.35)] transition-all active:scale-95 duration-200 uppercase tracking-wider"
-            >
-              Get Started Now
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* ── Footer ── */}
-      <footer className="relative z-10 border-t border-[#1a1b2e]/60 bg-[#0a0b14]/80 backdrop-blur-sm">
+      <footer className="relative z-10 border-t border-[#1a1b2e]/60 bg-[#0a0b14]/80 backdrop-blur-sm shrink-0">
         <div className="max-w-6xl mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 rounded bg-gradient-to-br from-[#2e5bff] to-[#571bc1] flex items-center justify-center">
